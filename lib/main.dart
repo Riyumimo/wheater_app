@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:wheater_app/presentation/pages/home_page.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'common/style.dart';
+import 'common_libs.dart';
 
 Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 
@@ -18,7 +19,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }
+
+AppStyle get $style => AppStyle();

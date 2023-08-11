@@ -22,6 +22,7 @@ class ApiClient<T> {
         throw Exception();
       }
     } on Exception catch (e) {
+      print(e);
       rethrow;
     }
   }

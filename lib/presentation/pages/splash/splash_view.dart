@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:wheater_app/common/routes.dart';
 import 'package:wheater_app/common_libs.dart';
 import 'package:wheater_app/presentation/widgets/baground_widget.dart';
 

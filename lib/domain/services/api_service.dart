@@ -28,7 +28,6 @@ class ApiServiceImplementation implements ApiService {
           await _dio!.get(endPoint, queryParameters: queryParameters);
       return response.data;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }

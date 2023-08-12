@@ -3,13 +3,13 @@ import 'package:wheater_app/common_libs.dart';
 import 'app_color.dart';
 
 class AppStyle {
-  late final _Text text = _Text();
+  late final Text text = Text();
 
   /// The current theme colors for the app
   final AppColors colors = AppColors();
 }
 
-class _Text {
+class Text {
   final Map<String, TextStyle> _titleFonts = {
     'en': const TextStyle(fontFamily: 'Inter'),
   };

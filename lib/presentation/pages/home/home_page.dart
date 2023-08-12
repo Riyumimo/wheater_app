@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
     dotenv.load(); // Load environment variables
     // _apiClient = ApiClient();
     final apiservice = ApiServiceImplementation();
-    print(apiservice);
 
     _apiClient = HomeRepository(apiservice);
     super.initState();
@@ -57,15 +56,14 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Spacer(),
+            const Spacer(),
             FutureBuilder(
                 future: getCurrentWheater(_apiClient!),
                 builder: (context, snaphot) {
                   if (snaphot.data == null) {
-                    return Text('data null');
+                    return const Text('data null');
                   }
                   // print(" data = ${snaphot.data}");
-                  print(snaphot.connectionState);
                   if (snaphot.connectionState == ConnectionState.done) {
                     return snaphot.data!.fold((left) => Text(left),
                         (right) => Text(right.name ?? ''));
@@ -73,17 +71,15 @@ class _HomePageState extends State<HomePage> {
                       ConnectionState.waiting) {
                     return const Text('wait');
                   } else {
-                    return Text('error');
+                    return const Text('error');
                   }
                 }),
             FutureBuilder(
                 future: get3HourForecast(_apiClient!),
                 builder: (context, snaphot) {
                   if (snaphot.data == null) {
-                    return Text('data null');
+                    return const Text('data null');
                   }
-                  print(" data = ${snaphot.data}");
-                  print(snaphot.connectionState);
                   if (snaphot.connectionState == ConnectionState.done) {
                     return snaphot.data!.fold((left) => Text(left),
                         (right) => Text(right.city!.name ?? ''));
@@ -91,10 +87,10 @@ class _HomePageState extends State<HomePage> {
                       ConnectionState.waiting) {
                     return const Text('wait');
                   } else {
-                    return Text('error');
+                    return const Text('error');
                   }
                 }),
-            Spacer()
+            const Spacer()
           ],
         ),
       ),

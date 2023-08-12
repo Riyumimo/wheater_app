@@ -47,7 +47,6 @@ class HomeRepository implements ApiClient {
   Future<Either<Failure, ForecastModel>> fetch3HourWheater(
       {required String latitude, longitude}) async {
     try {
-      print('test');
       await dotenv.load();
       String apiKey = dotenv.env['API_KEY'] ?? 'No Data';
       Map<String, dynamic> data = await apiService.get(
@@ -57,12 +56,9 @@ class HomeRepository implements ApiClient {
             'lon': longitude,
             'appid': apiKey
           });
-      print(data);
       ForecastModel forecastModel = ForecastModel.fromJson(data);
-      print(forecastModel);
       return Right(forecastModel);
     } catch (e) {
-      print(e);
       if (e is DioException) {
         return Left(ServerFailure.fromDioErro(e));
       } else {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wheater_app/domain/wheater/wheater.dart';
+import 'package:wheater_app/domain/model/wheater/wheater.dart';
 import 'package:wheater_app/presentation/pages/home_page.dart';
 
 import '../presentation/pages/splash/splash_view.dart';
@@ -15,7 +15,7 @@ class ScreenArguments {
   final String? cityName;
   final String? latitude;
   final String? longitude;
-  final Whater? whaterModel;
+  final WheaterModel? whaterModel;
 
   ScreenArguments(
       {this.cityName, this.latitude, this.longitude, this.whaterModel});

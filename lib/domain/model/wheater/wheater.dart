@@ -5,7 +5,7 @@ import 'sys.dart';
 import 'weather.dart';
 import 'wind.dart';
 
-class Whater {
+class WheaterModel {
   Coord? coord;
   List<Weather>? weather;
   String? base;
@@ -20,7 +20,7 @@ class Whater {
   String? name;
   int? cod;
 
-  Whater({
+  WheaterModel({
     this.coord,
     this.weather,
     this.base,
@@ -38,10 +38,10 @@ class Whater {
 
   @override
   String toString() {
-    return 'Whater(coord: $coord, weather: $weather, base: $base, main: $main, visibility: $visibility, wind: $wind, clouds: $clouds, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
+    return 'WheaterModel(coord: $coord, weather: $weather, base: $base, main: $main, visibility: $visibility, wind: $wind, clouds: $clouds, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
   }
 
-  factory Whater.fromJson(Map<String, dynamic> json) => Whater(
+  factory WheaterModel.fromJson(Map<String, dynamic> json) => WheaterModel(
         coord: json['coord'] == null
             ? null
             : Coord.fromJson(json['coord'] as Map<String, dynamic>),
@@ -85,7 +85,7 @@ class Whater {
         'cod': cod,
       };
 
-  Whater copyWith({
+  WheaterModel copyWith({
     Coord? coord,
     List<Weather>? weather,
     String? base,
@@ -100,7 +100,7 @@ class Whater {
     String? name,
     int? cod,
   }) {
-    return Whater(
+    return WheaterModel(
       coord: coord ?? this.coord,
       weather: weather ?? this.weather,
       base: base ?? this.base,

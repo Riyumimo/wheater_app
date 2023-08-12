@@ -25,10 +25,8 @@ class ApiServiceImplementation implements ApiService {
       {required String endPoint,
       required Map<String, dynamic> queryParameters}) async {
     try {
-      print('test');
       Response response =
           await _dio!.get(endPoint, queryParameters: queryParameters);
-      print(response.data as Map<String, dynamic>);
       return response.data;
     } catch (e) {
       print(e);

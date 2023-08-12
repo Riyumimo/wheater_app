@@ -4,7 +4,7 @@ import 'package:wheater_app/common/constant.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:wheater_app/common/failure.dart';
 import 'package:wheater_app/domain/model/wheater/wheater.dart';
-import 'package:wheater_app/domain/services/apiService.dart';
+import 'package:wheater_app/domain/services/api_service.dart';
 
 abstract class ApiClient {
   Future<Either<Failure, WheaterModel?>> fetchCurrentWheater(
@@ -24,12 +24,10 @@ class HomeRepository implements ApiClient {
       Map<String, dynamic> data = await apiService.get(
           endPoint: EndPoint.currentWheater,
           queryParameters: {
-            'lat=': latitude,
-            '&lon=': longitude,
-            '&appid=': apiKey
+            'lat': latitude,
+            'lon': longitude,
+            'appid': apiKey
           });
-      print('values ${data.values}');
-      print('test');
       WheaterModel wheaterModel = WheaterModel.fromJson(data);
       print(wheaterModel);
       return Right(wheaterModel);

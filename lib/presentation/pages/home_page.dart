@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:either_dart/either.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:wheater_app/domain/services/apiService.dart';
+import 'package:wheater_app/domain/services/api_service.dart';
 import 'package:wheater_app/domain/services/api_client.dart';
 import 'package:wheater_app/domain/model/wheater/wheater.dart';
 
@@ -51,10 +51,11 @@ class _HomePageState extends State<HomePage> {
               if (snaphot.data == null) {
                 return Text('data null');
               }
-              print(" data = ${snaphot.data!.left}");
+              print(" data = ${snaphot.data}");
               print(snaphot.connectionState);
               if (snaphot.connectionState == ConnectionState.done) {
-                return Text(snaphot.data!.left);
+                return snaphot.data!.fold(
+                    (left) => Text(left), (right) => Text(right.name ?? ''));
               } else if (snaphot.connectionState == ConnectionState.waiting) {
                 return const Text('wait');
               } else {

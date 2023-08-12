@@ -17,7 +17,6 @@ class ApiServiceImplementation implements ApiService {
         receiveDataWhenStatusError: true,
         connectTimeout: const Duration(seconds: 10),
         receiveTimeout: const Duration(seconds: 10));
-    print(baseOptions);
     _dio = Dio(baseOptions);
   }
   @override

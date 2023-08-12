@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wheater_app/domain/model/wheater/wheater.dart';
-import 'package:wheater_app/presentation/pages/home_page.dart';
+import 'package:wheater_app/presentation/pages/home/home_page.dart';
 
 import '../presentation/pages/splash/splash_view.dart';
 

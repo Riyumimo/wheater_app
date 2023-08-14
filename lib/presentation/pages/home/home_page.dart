@@ -9,6 +9,7 @@ import 'package:wheater_app/presentation/widgets/baground_widget.dart';
 part './widgets/header_widgets.dart';
 part './widgets/wheater_list_tile.dart';
 part './widgets/wheater_widgets.dart';
+part './widgets/wheater_time_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String apiKey = dotenv.env['API_KEY'] ?? 'No Data';
   HomeRepository? _apiClient;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -68,7 +70,20 @@ class _HomePageState extends State<HomePage> {
               ,
               const WheaterListTile(),
               const WheaterListTile(),
-              const WheaterListTile()
+              const WheaterListTile(),
+              Gap(10.h),
+              SizedBox(
+                height: 80.h,
+                width: double.infinity,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 30,
+                    controller: _scrollController,
+                    itemBuilder: (itemBuilder, index) {
+                      print(_scrollController.offset);
+                      return const WheaterTimeItem();
+                    }),
+              )
             ],
           ),
         ),

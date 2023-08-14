@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     dotenv.load(); // Load environment variables
     // _apiClient = ApiClient();
+    // _apiClient = ApiClient();
     final apiservice = ApiServiceImplementation();
 
     _apiClient = HomeRepository(apiservice);

@@ -1,12 +1,14 @@
 import 'dart:async';
 
-import 'package:either_dart/either.dart';
-import 'package:gap/gap.dart';
 import 'package:wheater_app/common_libs.dart';
 import 'package:wheater_app/domain/model/forecast/forecast.dart';
 import 'package:wheater_app/domain/services/api_service.dart';
 import 'package:wheater_app/domain/services/api_client.dart';
 import 'package:wheater_app/domain/model/wheater/wheater.dart';
+import 'package:wheater_app/presentation/widgets/baground_widget.dart';
+part './widgets/header_widgets.dart';
+part './widgets/wheater_list_tile.dart';
+part './widgets/wheater_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -55,77 +57,21 @@ class _HomePageState extends State<HomePage> {
     // final width = MediaQuery.sizeOf(context).width;
     // final height = MediaQuery.sizeOf(context).height;
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-            child: Column(
-              children: [
-                Text(
-                  'Stockholm,Sweden',
-                  style: $style.text.title1,
-                  maxLines: 2,
-                ),
-                const Gap(6),
-                Text(
-                  'Tue, Jun 30',
-                  style: $style.text.bodyBold,
-                ),
-              ],
-            ),
-          ),
-          Row(
-            children: <Widget>[
-              const SizedBox(height: 80, width: 83, child: Placeholder()),
-              const Gap(10),
-              Expanded(
-                child: Column(
-                  children: [
-                    Text(
-                      '19',
-                      style: $style.text.header1,
-                    ),
-                    Text(
-                      'Rainy',
-                      style: $style.text.title2,
-                    )
-                  ],
-                ),
-              )
+      body: BagroundWidget(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Gap(30.h),
+              const HeadedWheaterWidget(),
+              const WheaterWidget()
+              // futureWidgets(),
+              ,
+              const WheaterListTile(),
+              const WheaterListTile(),
+              const WheaterListTile()
             ],
-          )
-          // futureWidgets(),
-          ,
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Container(
-              padding: const EdgeInsetsDirectional.symmetric(
-                  vertical: 8, horizontal: 11),
-              height: 38,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0x5CFFFFFF)),
-              child: Row(
-                children: <Widget>[
-                  const SizedBox(
-                    height: 22,
-                    width: 22,
-                    child: Placeholder(),
-                  ),
-                  Text(
-                    'rainfall',
-                    style: $style.text.bodySmallBold,
-                  ),
-                  const Spacer(),
-                  Text(
-                    '3cm',
-                    style: $style.text.bodySmallBold,
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

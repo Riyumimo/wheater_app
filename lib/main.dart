@@ -1,5 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'common/style.dart';
 import 'common_libs.dart';
 

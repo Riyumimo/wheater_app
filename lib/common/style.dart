@@ -1,4 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wheater_app/common_libs.dart';
 
 import 'app_color.dart';
@@ -36,7 +35,7 @@ class Text {
   TextStyle get contentFont => _getFontForLocale(_contentFonts);
 
   late final TextStyle header1 = _createFont(titleFont,
-      sizePx: 43.sp, heightPx: 64.sp, weight: FontWeight.w700);
+      sizePx: 64.sp, heightPx: 84.sp, weight: FontWeight.w700);
   late final TextStyle title1 = _createFont(titleFont,
       sizePx: 24.sp, heightPx: 48.sp, spacingPc: 5, weight: FontWeight.w500);
   late final TextStyle title2 = _createFont(titleFont,

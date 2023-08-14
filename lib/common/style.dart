@@ -34,19 +34,20 @@ class Text {
   TextStyle get titleFont => _getFontForLocale(_titleFonts);
   TextStyle get contentFont => _getFontForLocale(_contentFonts);
 
-  late final TextStyle title1 =
-      _createFont(titleFont, sizePx: 16, heightPx: 26, spacingPc: 5);
+  late final TextStyle header1 =
+      _createFont(titleFont, sizePx: 43, heightPx: 52, weight: FontWeight.w700);
+  late final TextStyle title1 = _createFont(titleFont,
+      sizePx: 20, heightPx: 48, spacingPc: 5, weight: FontWeight.w500);
   late final TextStyle title2 =
-      _createFont(titleFont, sizePx: 14, heightPx: 16.38);
+      _createFont(titleFont, sizePx: 14, heightPx: 17, weight: FontWeight.w400);
 
-  late final TextStyle body =
-      _createFont(contentFont, sizePx: 16, heightPx: 26);
+  late final TextStyle body = _createFont(contentFont, sizePx: 9, heightPx: 11);
   late final TextStyle bodyBold = _createFont(contentFont,
-      sizePx: 16, heightPx: 26, weight: FontWeight.w600);
+      sizePx: 9, heightPx: 11, weight: FontWeight.w400);
   late final TextStyle bodySmall =
-      _createFont(contentFont, sizePx: 14, heightPx: 23);
-  late final TextStyle bodySmallBold = _createFont(contentFont,
-      sizePx: 14, heightPx: 23, weight: FontWeight.w600);
+      _createFont(contentFont, sizePx: 7, heightPx: 8);
+  late final TextStyle bodySmallBold =
+      _createFont(contentFont, sizePx: 7, heightPx: 8, weight: FontWeight.w400);
 
   TextStyle _createFont(TextStyle style,
       {required double sizePx,

@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wheater_app/common_libs.dart';
 
 import 'app_color.dart';
@@ -34,20 +35,21 @@ class Text {
   TextStyle get titleFont => _getFontForLocale(_titleFonts);
   TextStyle get contentFont => _getFontForLocale(_contentFonts);
 
-  late final TextStyle header1 =
-      _createFont(titleFont, sizePx: 43, heightPx: 52, weight: FontWeight.w700);
+  late final TextStyle header1 = _createFont(titleFont,
+      sizePx: 43.sp, heightPx: 64.sp, weight: FontWeight.w700);
   late final TextStyle title1 = _createFont(titleFont,
-      sizePx: 20, heightPx: 48, spacingPc: 5, weight: FontWeight.w500);
-  late final TextStyle title2 =
-      _createFont(titleFont, sizePx: 14, heightPx: 17, weight: FontWeight.w400);
+      sizePx: 24.sp, heightPx: 48.sp, spacingPc: 5, weight: FontWeight.w500);
+  late final TextStyle title2 = _createFont(titleFont,
+      sizePx: 18.sp, heightPx: 24.sp, weight: FontWeight.w400);
 
-  late final TextStyle body = _createFont(contentFont, sizePx: 9, heightPx: 11);
+  late final TextStyle body =
+      _createFont(contentFont, sizePx: 14.sp, heightPx: 16.sp.sp);
   late final TextStyle bodyBold = _createFont(contentFont,
-      sizePx: 9, heightPx: 11, weight: FontWeight.w400);
+      sizePx: 14.sp, heightPx: 16.sp, weight: FontWeight.w400);
   late final TextStyle bodySmall =
-      _createFont(contentFont, sizePx: 7, heightPx: 8);
-  late final TextStyle bodySmallBold =
-      _createFont(contentFont, sizePx: 7, heightPx: 8, weight: FontWeight.w400);
+      _createFont(contentFont, sizePx: 12.sp, heightPx: 14.sp);
+  late final TextStyle bodySmallBold = _createFont(contentFont,
+      sizePx: 12.sp, heightPx: 14.sp, weight: FontWeight.w400);
 
   TextStyle _createFont(TextStyle style,
       {required double sizePx,

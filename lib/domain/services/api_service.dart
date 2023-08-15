@@ -1,5 +1,4 @@
-import 'package:dio/dio.dart';
-import 'package:wheater_app/common/constant.dart';
+import '../../common_libs.dart';
 
 abstract class ApiService {
   Future<Map<String, dynamic>> get({

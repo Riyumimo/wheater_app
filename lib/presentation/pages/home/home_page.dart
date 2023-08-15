@@ -83,8 +83,6 @@ class _HomePageState extends State<HomePage> {
                       return WheaterTimeItem(
                         selected: selected == index,
                         onChange: (onselected) {
-                          // print(index);
-                          // print(selec);
                           setState(() {
                             selected = onselected == false ? index : null;
                           });

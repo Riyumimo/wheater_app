@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   String apiKey = dotenv.env['API_KEY'] ?? 'No Data';
   HomeRepository? _apiClient;
   final ScrollController _scrollController = ScrollController();
-
+  int? selected = 0;
   @override
   void initState() {
     dotenv.load(); // Load environment variables
@@ -80,10 +80,19 @@ class _HomePageState extends State<HomePage> {
                     itemCount: 30,
                     controller: _scrollController,
                     itemBuilder: (itemBuilder, index) {
-                      print(_scrollController.offset);
-                      return const WheaterTimeItem();
+                      return WheaterTimeItem(
+                        selected: selected == index,
+                        onChange: (onselected) {
+                          // print(index);
+                          // print(selec);
+                          setState(() {
+                            selected = onselected == false ? index : null;
+                          });
+                        },
+                      );
                     }),
               )
+              // ChoiceChip(label: label, selected: selected,onSelected: (value)=>,)
             ],
           ),
         ),
